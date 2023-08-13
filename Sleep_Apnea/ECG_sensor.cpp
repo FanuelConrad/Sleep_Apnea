@@ -93,16 +93,6 @@ double ECG_sensor::calculate_hr()
 double ECG_sensor::calculate_hrv(double hr)
 {
     hrv = hr / 60 - interval / 1000000;
-
-    Serial.print(hr);
-
-    Serial.print(",");
-
-    Serial.print(hrv);
-
-    Serial.print(",");
-
-    Serial.println(value);
 }
 
 int ECG_sensor::getValue()
