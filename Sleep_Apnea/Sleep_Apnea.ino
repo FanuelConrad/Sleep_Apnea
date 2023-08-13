@@ -1,10 +1,24 @@
+#include "ECG_sensor.h"
 
-/*void setup() {
-  // put your setup code here, to run once:
+ECG_sensor ecg_sensor(8,9);
+
+void setup() {
+ 
+ ecg_sensor.init();
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  Serial.print(ecg_sensor.calculate_hr());
 
-}*/
+    Serial.print(",");
+
+    Serial.print(ecg_sensor.calculate_hrv(ecg_sensor.calculate_hr()));
+
+    Serial.print(",");
+
+    Serial.println(ecg_sensor.getValue());
+
+    delay(1);
+
+}

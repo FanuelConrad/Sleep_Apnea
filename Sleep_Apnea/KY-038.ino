@@ -1,4 +1,4 @@
-#define DO 8
+/*#define DO 8
 unsigned long last_event = 0;
 
 void setup() {
@@ -14,4 +14,4 @@ void loop() {
     }
     last_event = millis();
   }
-}
+}*/

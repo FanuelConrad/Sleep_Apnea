@@ -1,4 +1,4 @@
-const int GSR=A0;
+/*const int GSR=A0;
 int sensorValue=0;
 int gsr_average=0;
 
@@ -16,4 +16,4 @@ void loop(){
       }
    gsr_average = sum/10;
    Serial.println(gsr_average);
-}
+}*/

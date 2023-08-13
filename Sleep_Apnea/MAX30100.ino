@@ -6,7 +6,7 @@
 // Create a PulseOximeter object
 PulseOximeter pox;
 
-// Time at which the last beat occurred
+/*// Time at which the last beat occurred
 uint32_t tsLastReport = 0;
 
 // Callback routine is executed when a pulse is detected
@@ -48,4 +48,4 @@ void loop() {
 
         tsLastReport = millis();
     }
-}
+}*/
