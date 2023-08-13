@@ -1,45 +1,53 @@
-#include <Wire.h>
-#include "MAX30100_PulseOximeter.h"
-
-#define REPORTING_PERIOD_MS     1000
+#include "Max300_sensor.h"
 
 // Create a PulseOximeter object
 PulseOximeter pox;
 
-/*// Time at which the last beat occurred
-uint32_t tsLastReport = 0;
+Max300_sensor::Max300_sensor()
+{
+}
 
 // Callback routine is executed when a pulse is detected
-void onBeatDetected() {
+void Max300_sensor::onBeatDetected()
+{
     Serial.println("Beat!");
 }
 
-void setup() {
-    Serial.begin(9600);
-
+void Max300_sensor::init()
+{
     Serial.print("Initializing pulse oximeter..");
 
+    REPORTING_PERIOD_MS = 1000;
+    // Time at which the last beat occurred
+    tsLastReport = 0;
+
     // Initialize sensor
-    if (!pox.begin()) {
+    if (!pox.begin())
+    {
         Serial.println("FAILED");
-        for(;;);
-    } else {
+        for (;;)
+            ;
+    }
+    else
+    {
         Serial.println("SUCCESS");
     }
 
-	// Configure sensor to use 7.6mA for LED drive
-	pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+    // Configure sensor to use 7.6mA for LED drive
+    pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
 
     // Register a callback routine
     pox.setOnBeatDetectedCallback(onBeatDetected);
 }
 
-void loop() {
+void Max300_sensor::print_max300_data()
+{
     // Read from the sensor
     pox.update();
 
     // Grab the updated heart rate and SpO2 levels
-    if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+    if (millis() - tsLastReport > REPORTING_PERIOD_MS)
+    {
         Serial.print("Heart rate:");
         Serial.print(pox.getHeartRate());
         Serial.print("bpm / SpO2:");
@@ -48,4 +56,4 @@ void loop() {
 
         tsLastReport = millis();
     }
-}*/
+}
