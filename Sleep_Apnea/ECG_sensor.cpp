@@ -88,11 +88,13 @@ double ECG_sensor::calculate_hr()
             count = 0;
         }
     }
+    return hr;
 }
 
 double ECG_sensor::calculate_hrv(double hr)
 {
     hrv = hr / 60 - interval / 1000000;
+    return hrv;
 }
 
 int ECG_sensor::getValue()
@@ -100,4 +102,5 @@ int ECG_sensor::getValue()
     value = analogRead(A0);
 
     value = map(value, 250, 400, 0, 100); // to flatten the ecg values a bit
+    return value;
 }

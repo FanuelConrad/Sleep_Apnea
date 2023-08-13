@@ -6,6 +6,10 @@
 class ECG_sensor
 {
 private:
+public:
+    ECG_sensor(byte LO_p_pin, byte LO_n_pin);
+    ECG_sensor();
+
     byte LO_p_pin;
     byte LO_n_pin;
     long instance1, timer;
@@ -15,10 +19,6 @@ private:
     int shutdown_pin;
     int threshold;   // to identify R peak
     int timer_value; // 10 seconds timer to calculate hr
-
-public:
-    ECG_sensor(byte LO_p_pin, byte LO_n_pin);
-    ECG_sensor();
 
     void init();
     bool check_if_leads_are_removed();
